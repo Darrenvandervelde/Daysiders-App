@@ -14,10 +14,9 @@ Daysiders-App is a digital library and gallery management tool designed to help 
 -  Clean and user-friendly interface
 
 This project aims to provide a **simple yet powerful platform** for anyone who wants to keep their digital reading materials and images neatly organized.
-
 Its still in its begining development stage.
 
-### what has been completed.
+### What has been completed.
 -  Login Page with CSS and HTML
 
 ## Future Update's 
