@@ -1,5 +1,6 @@
 # Daysiders-App
 
+# Gallery
 ![App Screenshot](img1.png)
 
 ## About This Project
