@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Database Connections
 require_once 'system/database/db.php';
 $pdo = db_connect();
 
@@ -7,7 +8,7 @@ $pdo = db_connect();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-
+    
     if (!$username || !$password) {
         echo json_encode(['success'=>false, 'message'=>'Please fill in all fields']);
         exit();
@@ -16,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
     $stmt->execute(['username'=>$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
+    // Check User Role Email and Username.
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
@@ -280,3 +282,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
 
 </body>
 </html>
+
